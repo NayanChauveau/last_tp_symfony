@@ -237,4 +237,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
+
+    public function getTinyPassword(): string 
+    {
+        return substr($this->getPassword(), 0, 15) . '...';
+    }
+
+    public function __toString() {
+        return $this->pseudo;
+    }
 }
